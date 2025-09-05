@@ -1,0 +1,665 @@
+<html class="scroll-smooth" lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Agrisense – India’s Smart Antimicrobial Tracking &amp; Compliance Platform
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: 'Inter', sans-serif;
+      background: white;
+      color: #1f2937;
+      overflow-x: hidden;
+    }
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #e0f7ff;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #34a853;
+      border-radius: 10px;
+    }
+    /* Navbar link active underline */
+    .nav-link.active {
+      position: relative;
+      color: #34a853;
+      font-weight: 700;
+    }
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: #34a853;
+      border-radius: 2px;
+    }
+    /* Section heading underline */
+    h2.section-title {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 0.3rem;
+      font-weight: 700;
+    }
+    h2.section-title::after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 3px;
+      background-color: #34a853;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+    /* Card hover */
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 1rem;
+      background: white;
+      box-shadow: 0 4px 8px rgb(0 0 0 / 0.05);
+    }
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgb(52 168 83 / 0.3);
+      z-index: 10;
+    }
+    /* CTA button */
+    .btn-primary {
+      background-color: #34a853;
+      color: white;
+      font-weight: 600;
+      border-radius: 0.5rem;
+      padding: 0.75rem 2rem;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 8px rgb(52 168 83 / 0.4);
+    }
+    .btn-primary:hover {
+      background-color: #2c8a3e;
+      box-shadow: 0 6px 14px rgb(52 168 83 / 0.6);
+    }
+    /* Background tints */
+    .bg-lightblue {
+      background-color: #e0f7ff;
+    }
+    .bg-softgreen {
+      background-color: #e6f4ea;
+    }
+    /* Vision section gradient */
+    #vision {
+      background: linear-gradient(135deg, #34a853 0%, #4fc3f7 100%);
+      color: white;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 1.25rem;
+    }
+    #vision h2 {
+      font-weight: 800;
+      font-size: 2.5rem;
+      max-width: 900px;
+      line-height: 1.1;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    /* Navbar mobile menu */
+    #mobileMenu {
+      transition: max-height 0.3s ease;
+      overflow: hidden;
+      max-height: 0;
+    }
+  </style>
+ </head>
+ <body class="bg-white text-gray-900">
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 bg-white shadow-md">
+   <nav aria-label="Primary Navigation" class="max-w-7xl mx-auto flex items-center justify-between px-5 sm:px-8 py-4">
+    <a class="flex items-center space-x-3 font-bold text-2xl text-green-600 select-none" href="#home" onclick="showSection('home')">
+     <i class="fas fa-shield-alt">
+     </i>
+     <span>
+      Agrisense
+     </span>
+    </a>
+    <div class="hidden md:flex space-x-8 text-gray-700 font-semibold">
+     <button class="nav-link cursor-pointer hover:text-green-600" data-target="home" onclick="showSection('home')">
+      Home
+     </button>
+     <button class="nav-link cursor-pointer hover:text-green-600" data-target="problem" onclick="showSection('problem')">
+      Problem
+     </button>
+     <button class="nav-link cursor-pointer hover:text-green-600" data-target="solution" onclick="showSection('solution')">
+      Solution
+     </button>
+     <button class="nav-link cursor-pointer hover:text-green-600" data-target="features" onclick="showSection('features')">
+      Features
+     </button>
+     <button class="nav-link cursor-pointer hover:text-green-600" data-target="unique" onclick="showSection('unique')">
+      Unique
+     </button>
+     <button class="nav-link cursor-pointer hover:text-green-600" data-target="vision" onclick="showSection('vision')">
+      Vision
+     </button>
+     <button class="nav-link cursor-pointer hover:text-green-600" data-target="progress" onclick="showSection('progress')">
+      Progress
+     </button>
+     <button class="nav-link cursor-pointer hover:text-green-600" data-target="team" onclick="showSection('team')">
+      Team
+     </button>
+     <button class="nav-link cursor-pointer hover:text-green-600" data-target="contact" onclick="showSection('contact')">
+      Contact
+     </button>
+    </div>
+    <button aria-label="Toggle menu" class="md:hidden text-green-600 focus:outline-none" id="mobileMenuBtn">
+     <i class="fas fa-bars fa-lg">
+     </i>
+    </button>
+   </nav>
+   <div class="md:hidden bg-white border-t border-gray-200" id="mobileMenu">
+    <nav class="flex flex-col space-y-2 px-5 py-4 font-semibold text-gray-700">
+     <button class="nav-link cursor-pointer hover:text-green-600 text-left" data-target="home" onclick="showSection('home'); toggleMobileMenu()">
+      Home
+     </button>
+     <button class="nav-link cursor-pointer hover:text-green-600 text-left" data-target="problem" onclick="showSection('problem'); toggleMobileMenu()">
+      Problem
+     </button>
+     <button class="nav-link cursor-pointer hover:text-green-600 text-left" data-target="solution" onclick="showSection('solution'); toggleMobileMenu()">
+      Solution
+     </button>
+     <button class="nav-link cursor-pointer hover:text-green-600 text-left" data-target="features" onclick="showSection('features'); toggleMobileMenu()">
+      Features
+     </button>
+     <button class="nav-link cursor-pointer hover:text-green-600 text-left" data-target="unique" onclick="showSection('unique'); toggleMobileMenu()">
+      Unique
+     </button>
+     <button class="nav-link cursor-pointer hover:text-green-600 text-left" data-target="vision" onclick="showSection('vision'); toggleMobileMenu()">
+      Vision
+     </button>
+     <button class="nav-link cursor-pointer hover:text-green-600 text-left" data-target="progress" onclick="showSection('progress'); toggleMobileMenu()">
+      Progress
+     </button>
+     <button class="nav-link cursor-pointer hover:text-green-600 text-left" data-target="team" onclick="showSection('team'); toggleMobileMenu()">
+      Team
+     </button>
+     <button class="nav-link cursor-pointer hover:text-green-600 text-left" data-target="contact" onclick="showSection('contact'); toggleMobileMenu()">
+      Contact
+     </button>
+    </nav>
+   </div>
+  </header>
+  <main class="max-w-7xl mx-auto relative">
+   <!-- Home / Hero Section -->
+   <section class="min-h-[calc(100vh-64px)] flex flex-col justify-center items-center text-center px-5 sm:px-8 bg-white transition-opacity duration-500 ease-in-out" id="home">
+    <div class="max-w-3xl w-full">
+     <div class="mb-10">
+      <img alt="Abstract green and blue background illustration" class="rounded-xl shadow-lg w-full object-cover" height="300" loading="lazy" src="appimg.jpg" width="400"/>
+     </div>
+     <h3 class="text-4xl sm:text-2xl font-extrabold text-black-700 mb-4 leading-tight">
+      This isn't another government portal. It isn't another complicated app. We threw all that out. AMR360 is an ecosystem of trust. It's the simplest, most powerful way to ensure the food on our tables is safe.
+     </h3>
+     <h1 class="text-4xl sm:text-5xl font-extrabold text-green-700 mb-4 leading-tight">
+      Agrisense
+     </h1>
+     <p class="text-xl sm:text-2xl text-blue-500 mb-8 max-w-xl mx-auto">
+      The milk we drink, the meat we eat, the eggs we serve — all could carry invisible risks if we don’t act now
+     </p>
+     <button class="btn-primary" onclick="showSection('problem')">
+      Learn More
+     </button>
+    </div>
+   </section>
+   <!-- Problem Section -->
+   <section 
+  class="hidden py-16 px-5 sm:px-8 bg-lightblue flex flex-col md:flex-row items-center max-w-7xl mx-auto gap-12 transition-opacity duration-500 ease-in-out" 
+  id="problem">
+
+  <!-- Left Image -->
+  <div class="md:w-1/2">
+    <img 
+      src="https://storage.googleapis.com/a1aa/image/49002b7c-792b-4a96-f95a-50378d1b949f.jpg" 
+      alt="Livestock and food safety illustration highlighting AMR issues" 
+      class="rounded-xl shadow-lg w-full object-cover" 
+      width="600" height="400" 
+      loading="lazy" 
+    />
+  </div>
+
+  <!-- Right Content -->
+  <div class="md:w-1/2 text-green-700">
+    <h2 class="section-title text-3xl mb-6 font-bold">
+      🚨 Antimicrobial Resistance – A Silent Pandemic in Our Food System
+    </h2>
+    
+    <p class="mb-4 text-lg leading-relaxed">
+      In India, livestock is not just food, it’s livelihood — more than <span class="font-semibold">85% of dairy and poultry production</span> comes from smallholder farmers.
+    </p>
+
+    <p class="mb-4 text-lg leading-relaxed">
+      But misuse and overuse of antibiotics in animals has created a dangerous hidden crisis:
+    </p>
+
+    <ul class="list-disc list-inside mb-4 space-y-2 text-lg leading-relaxed">
+      <li>Antimicrobial residues in milk, meat, and eggs.</li>
+      <li>Drug resistance making infections harder to treat.</li>
+      <li>Export rejections costing India millions.</li>
+    </ul>
+
+    <p class="mb-4 text-lg leading-relaxed">
+      Consumers have no visibility into how their food was produced. A glass of milk may look pure, but if antibiotics remain in it, it’s unsafe.
+    </p>
+
+    <p class="mb-4 text-lg leading-relaxed">
+      Government agencies lack real-time tools to track antimicrobial usage and ensure compliance with Maximum Residue Limits (MRL).
+    </p>
+
+    <p class="mb-4 text-lg leading-relaxed">
+      This problem isn’t just about farming — it’s about public health, farmer incomes, and India’s global credibility.
+    </p>
+
+    <p class="mb-6 text-lg leading-relaxed font-semibold text-red-600">
+      👉 Key fact: By 2050, <span class="font-bold">10 million deaths annually</span> worldwide are projected due to AMR (UN report). India is one of the most vulnerable.
+    </p>
+  </div>
+</section>
+
+   <!-- Solution Section -->
+   <section class="hidden py-16 px-5 sm:px-8 bg-softgreen max-w-7xl mx-auto transition-opacity duration-500 ease-in-out" id="solution">
+    <h2 class="section-title text-3xl text-green-700 mb-12 text-center">
+     Our Solution – Agrisense
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+     <div class="card p-6 flex flex-col items-center text-center shadow-md">
+      <i class="fas fa-mobile-alt text-4xl text-green-600 mb-4">
+      </i>
+      <h3 class="font-semibold text-lg text-green-700 mb-2">
+       Farmer App
+      </h3>
+      <p class="text-gray-700">
+       Easy animal treatment logging &amp; withdrawal tracking.
+      </p>
+     </div>
+     <div class="card p-6 flex flex-col items-center text-center shadow-md">
+      <i class="fas fa-user-md text-4xl text-green-600 mb-4">
+      </i>
+      <h3 class="font-semibold text-lg text-green-700 mb-2">
+       Vet Portal
+      </h3>
+      <p class="text-gray-700">
+       AI-powered decision support &amp; digital e-prescriptions.
+      </p>
+     </div>
+     <div class="card p-6 flex flex-col items-center text-center shadow-md">
+      <i class="fas fa-chart-line text-4xl text-green-600 mb-4">
+      </i>
+      <h3 class="font-semibold text-lg text-green-700 mb-2">
+       Regulator Dashboard
+      </h3>
+      <p class="text-gray-700">
+       National AMU heatmaps &amp; compliance monitoring.
+      </p>
+     </div>
+     <div class="card p-6 flex flex-col items-center text-center shadow-md">
+      <i class="fas fa-qrcode text-4xl text-green-600 mb-4">
+      </i>
+      <h3 class="font-semibold text-lg text-green-700 mb-2">
+       Consumer QR Portal
+      </h3>
+      <p class="text-gray-700">
+       Traceability &amp; trust via QR codes on food packets.
+      </p>
+     </div>
+    </div>
+   </section>
+   <!-- Features Section -->
+   <section class="hidden py-16 px-5 sm:px-8 bg-lightblue max-w-7xl mx-auto transition-opacity duration-500 ease-in-out" id="features">
+    <h2 class="section-title text-3xl text-green-700 mb-12 text-center">
+     Key Features
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+     <div class="card p-6 flex flex-col items-center text-center shadow-md">
+      <i class="fas fa-microphone text-4xl text-green-600 mb-4">
+      </i>
+      <h3 class="font-semibold text-lg text-green-700 mb-2">
+       Voice-enabled Farmer Logging
+      </h3>
+      <p class="text-gray-700">
+       Simplifies data entry with voice and IVR support.
+      </p>
+     </div>
+     <div class="card p-6 flex flex-col items-center text-center shadow-md">
+      <i class="fas fa-robot text-4xl text-green-600 mb-4">
+      </i>
+      <h3 class="font-semibold text-lg text-green-700 mb-2">
+       AI Vet Support
+      </h3>
+      <p class="text-gray-700">
+       Decision support for veterinarians with AI insights.
+      </p>
+     </div>
+     <div class="card p-6 flex flex-col items-center text-center shadow-md">
+      <i class="fas fa-ban text-4xl text-green-600 mb-4">
+      </i>
+      <h3 class="font-semibold text-lg text-green-700 mb-2">
+       Real-time Withdrawal Blocking
+      </h3>
+      <p class="text-gray-700">
+       Prevents unsafe milk/meat from entering the supply chain.
+      </p>
+     </div>
+     <div class="card p-6 flex flex-col items-center text-center shadow-md">
+      <i class="fas fa-qrcode text-4xl text-green-600 mb-4">
+      </i>
+      <h3 class="font-semibold text-lg text-green-700 mb-2">
+       QR Traceability
+      </h3>
+      <p class="text-gray-700">
+       Consumer access to product origin and safety data.
+      </p>
+     </div>
+     <div class="card p-6 flex flex-col items-center text-center shadow-md">
+      <i class="fas fa-search-dollar text-4xl text-green-600 mb-4">
+      </i>
+      <h3 class="font-semibold text-lg text-green-700 mb-2">
+       Fraud Detection
+      </h3>
+      <p class="text-gray-700">
+       Machine learning to detect mislabeling and fraud.
+      </p>
+     </div>
+     <div class="card p-6 flex flex-col items-center text-center shadow-md">
+      <i class="fas fa-cloud-upload-alt text-4xl text-green-600 mb-4">
+      </i>
+      <h3 class="font-semibold text-lg text-green-700 mb-2">
+       Offline-first Sync
+      </h3>
+      <p class="text-gray-700">
+       Works offline with automatic syncing when online.
+      </p>
+     </div>
+     <div class="card p-6 flex flex-col items-center text-center shadow-md">
+      <i class="fas fa-shield-alt text-4xl text-green-600 mb-4">
+      </i>
+      <h3 class="font-semibold text-lg text-green-700 mb-2">
+       Privacy &amp; Security
+      </h3>
+      <p class="text-gray-700">
+       End-to-end encryption and data protection.
+      </p>
+     </div>
+     <div class="card p-6 flex flex-col items-center text-center shadow-md">
+      <i class="fas fa-users text-4xl text-green-600 mb-4">
+      </i>
+      <h3 class="font-semibold text-lg text-green-700 mb-2">
+       Multi-user Roles
+      </h3>
+      <p class="text-gray-700">
+       Separate access for farmers, vets, regulators, and consumers.
+      </p>
+     </div>
+    </div>
+   </section>
+   <!-- Unique Section -->
+   <section class="hidden py-16 px-5 sm:px-8 bg-softgreen max-w-7xl mx-auto transition-opacity duration-500 ease-in-out" id="unique">
+    <h2 class="section-title text-3xl text-green-700 mb-12 text-center">
+     What Makes Agrisense Different?
+    </h2>
+    <ul class="max-w-3xl mx-auto list-disc list-inside space-y-4 text-green-800 text-lg">
+     <li>
+      Voice &amp; IVR data entry for easy farmer logging.
+     </li>
+     <li>
+      AI-powered decision support for veterinarians.
+     </li>
+     <li>
+      Anomaly detection using machine learning for fraud prevention.
+     </li>
+     <li>
+      Consumer-facing QR codes for full product traceability and trust.
+     </li>
+     <li>
+      Offline-first design with seamless syncing.
+     </li>
+     <li>
+      Multi-stakeholder platform integrating farmers, vets, regulators, and consumers.
+     </li>
+    </ul>
+   </section>
+   <!-- Vision Section -->
+   <section class="hidden" data-aos="fade-up" data-aos-duration="1000" id="vision">
+    <h2>
+     Safer Food, Stronger Farmers, AMR-Free Future.
+    </h2>
+   </section>
+   <!-- Progress Section -->
+   <section class="hidden py-16 px-5 sm:px-8 bg-lightblue max-w-4xl mx-auto transition-opacity duration-500 ease-in-out" id="progress">
+    <h2 class="section-title text-3xl text-green-700 mb-12 text-center">
+     Progress / MVP
+    </h2>
+    <ol class="relative border-l-4 border-green-600 ml-6 space-y-10">
+     <li class="relative pl-10">
+      <span aria-hidden="true" class="absolute -left-6 top-1 bg-green-600 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg">
+       ✅
+      </span>
+      <h3 class="font-semibold text-xl text-green-700 mb-1">
+       Pitch Ready
+      </h3>
+      <p class="text-gray-700">
+       Compelling pitch deck and business plan ready for investors and partners.
+      </p>
+     </li>
+     <li class="relative pl-10">
+      <span aria-hidden="true" class="absolute -left-6 top-1 bg-green-600 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg">
+       🛠
+      </span>
+      <h3 class="font-semibold text-xl text-green-700 mb-1">
+       Demo Design
+      </h3>
+      <p class="text-gray-700">
+       Functional demo showcasing core features is under active development.
+      </p>
+     </li>
+     <li class="relative pl-10">
+      <span aria-hidden="true" class="absolute -left-6 top-1 bg-green-600 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg">
+       🚀
+      </span>
+      <h3 class="font-semibold text-xl text-green-700 mb-1">
+       MVP Development
+      </h3>
+      <p class="text-gray-700">
+       Building the minimum viable product with farmer app, vet portal, and regulator dashboard.
+      </p>
+     </li>
+    </ol>
+   </section>
+   <!-- Team Section -->
+   <section class="hidden py-16 px-5 sm:px-8 bg-softgreen max-w-7xl mx-auto transition-opacity duration-500 ease-in-out" id="team">
+    <h2 class="section-title text-3xl text-green-700 mb-12 text-center">
+     Our Team
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+     <div class="card p-6 flex flex-col items-center text-center shadow-md">
+      <img alt="Shivakant Kumar, Founder" class="rounded-full mb-4 w-36 h-36 object-cover shadow-md" height="150" loading="lazy" src="https://storage.googleapis.com/a1aa/image/7a95ef87-f516-4096-375a-2d91a5dead8b.jpg" width="150"/>
+      <h3 class="text-xl font-semibold text-green-700 mb-1">
+       Shivakant Kumar
+      </h3>
+      <p class="text-gray-700">
+       Founder &amp; CEO
+      </p>
+     </div>
+     <div class="card p-6 flex flex-col items-center text-center shadow-md">
+      <img alt="Gopal, Co-Founder" class="rounded-full mb-4 w-36 h-36 object-cover shadow-md" height="150" loading="lazy" src="https://storage.googleapis.com/a1aa/image/85815946-6ce9-4d35-0abc-1ca9b154a501.jpg" width="150"/>
+      <h3 class="text-xl font-semibold text-green-700 mb-1">
+       Gopal
+      </h3>
+      <p class="text-gray-700">
+       Co-Founder
+      </p>
+     </div>
+     <div class="card p-6 flex flex-col items-center text-center shadow-md">
+      <img alt="Sudharshan Dogre, CTO" class="rounded-full mb-4 w-36 h-36 object-cover shadow-md" height="150" loading="lazy" src="https://storage.googleapis.com/a1aa/image/3243c0ac-98e0-4b92-e6a1-14a944aa2e34.jpg" width="150"/>
+      <h3 class="text-xl font-semibold text-green-700 mb-1">
+       Sudharshan Dogre
+      </h3>
+      <p class="text-gray-700">
+       CTO
+      </p>
+     </div>
+     <div class="card p-6 flex flex-col items-center text-center shadow-md">
+      <img alt="Md Ismile, Developer" class="rounded-full mb-4 w-36 h-36 object-cover shadow-md" height="150" loading="lazy" src="https://storage.googleapis.com/a1aa/image/1b71bfd6-2d57-4953-89aa-b562f1a7814e.jpg" width="150"/>
+      <h3 class="text-xl font-semibold text-green-700 mb-1">
+       Md Ismile
+      </h3>
+      <p class="text-gray-700">
+       Developer
+      </p>
+     </div>
+    </div>
+   </section>
+   <!-- Contact Section -->
+   <section class="hidden py-16 px-5 sm:px-8 bg-white max-w-7xl mx-auto transition-opacity duration-500 ease-in-out" id="contact">
+    <h2 class="section-title text-3xl text-green-700 mb-12 text-center">
+     Contact Us
+    </h2>
+    <form class="max-w-xl mx-auto space-y-6" onsubmit="submitContactForm(event)">
+     <div>
+      <label class="block text-green-700 font-semibold mb-1" for="name">
+       Name
+      </label>
+      <input class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" id="name" name="name" required="" type="text"/>
+     </div>
+     <div>
+      <label class="block text-green-700 font-semibold mb-1" for="email">
+       Email
+      </label>
+      <input class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" id="email" name="email" required="" type="email"/>
+     </div>
+     <div>
+      <label class="block text-green-700 font-semibold mb-1" for="message">
+       Message
+      </label>
+      <textarea class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" id="message" name="message" required="" rows="5"></textarea>
+     </div>
+     <div class="text-center">
+      <button class="btn-primary" type="submit">
+       Send Message
+      </button>
+     </div>
+     <p class="mt-4 text-center font-semibold" id="formStatus">
+     </p>
+    </form>
+   </section>
+  </main>
+  <!-- Footer -->
+  <footer class="bg-white border-t border-gray-200 py-8 mt-16">
+   <div class="max-w-7xl mx-auto px-5 sm:px-8 text-center text-gray-600">
+    <p>
+     © 2025 Agrisense | India’s Smart Antimicrobial Tracking &amp; Compliance Platform
+    </p>
+   </div>
+  </footer>
+  <script>
+   const sections = ['home', 'problem', 'solution', 'features', 'unique', 'vision', 'progress', 'team', 'contact'];
+    const navLinks = document.querySelectorAll('.nav-link');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    function showSection(id) {
+      sections.forEach(sectionId => {
+        const el = document.getElementById(sectionId);
+        if (!el) return;
+        if (sectionId === id) {
+          el.classList.remove('hidden');
+          el.style.opacity = 0;
+          setTimeout(() => {
+            el.style.opacity = 1;
+          }, 10);
+          el.scrollIntoView({behavior: 'smooth'});
+        } else {
+          el.style.opacity = 0;
+          setTimeout(() => {
+            el.classList.add('hidden');
+          }, 300);
+        }
+      });
+      setActiveLink(id);
+      if (window.innerWidth < 768) {
+        toggleMobileMenu(false);
+      }
+    }
+
+    function setActiveLink(id) {
+      navLinks.forEach(link => {
+        if (link.dataset.target === id) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        showSection(link.dataset.target);
+      });
+    });
+
+    mobileMenuBtn.addEventListener('click', () => {
+      const expanded = mobileMenu.style.maxHeight && mobileMenu.style.maxHeight !== '0px';
+      toggleMobileMenu(!expanded);
+    });
+
+    function toggleMobileMenu(open) {
+      if (open) {
+        mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+        mobileMenuBtn.innerHTML = '<i class="fas fa-times fa-lg"></i>';
+      } else {
+        mobileMenu.style.maxHeight = '0px';
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars fa-lg"></i>';
+      }
+    }
+
+    // Initialize default section
+    showSection('home');
+
+    // Contact form submission placeholder
+    function submitContactForm(e) {
+      e.preventDefault();
+      const form = e.target;
+      const status = document.getElementById('formStatus');
+      status.textContent = '';
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+
+      if (!name || !email || !message) {
+        status.textContent = 'Please fill in all fields.';
+        status.classList.remove('text-green-500');
+        status.classList.add('text-red-500');
+        return;
+      }
+
+      status.textContent = 'Sending...';
+      status.classList.remove('text-red-500');
+      status.classList.remove('text-green-500');
+
+      setTimeout(() => {
+        status.textContent = 'Thank you for reaching out! We will get back to you soon.';
+        status.classList.remove('text-red-500');
+        status.classList.add('text-green-500');
+        form.reset();
+      }, 1500);
+    }
+  </script>
+ </body>
+</html>
