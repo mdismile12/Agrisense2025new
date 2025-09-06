@@ -15,7 +15,7 @@ function Navbar({ userType, onLogout }) {
 			<nav className="container d-flex align-items-center justify-content-between py-3">
 				<div className="d-flex align-items-center gap-2">
 					<img
-						src="https://storage.googleapis.com/a1aa/image/a45c91ea-af30-4d10-f9cf-d5010b7ebc51.jpg"
+						src="/argrilogo.png"
 						alt="Agrisense logo"
 						width="40"
 						height="40"
