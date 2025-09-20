@@ -11,8 +11,12 @@ function ConsumerQRVerification() {
       <img
         src="https://storage.googleapis.com/a1aa/image/4e5d96b8-9765-4507-0b08-2f7bc6724720.jpg"
         alt="Close-up of a hand holding a smartphone scanning a QR code on a milk packet in a grocery store"
+<<<<<<< HEAD
         className="mb-4 rounded img-fluid d-block mx-auto"
         style={{maxWidth:'100%',height:'auto',objectFit:'contain'}}
+=======
+        className="mx-auto mb-4 rounded"
+>>>>>>> bf63d213a5009e3583e0edc37aab8490543c995a
         width="300"
         height="300"
       />

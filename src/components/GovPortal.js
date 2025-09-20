@@ -4,10 +4,17 @@ import React, { useState, useEffect } from "react";
 function GovernmentHeatmaps() {
   return (
     <div className="card h-100 p-3 text-center border border-danger shadow">
+<<<<<<< HEAD
       <img src="https://storage.googleapis.com/a1aa/image/fa3038a4-bbce-4dcb-5953-8554957e995c.jpg" alt="Heatmap of India showing antimicrobial usage intensity by region with color gradients" className="mb-4 rounded img-fluid d-block mx-auto" style={{maxWidth:'100%',height:'auto',objectFit:'contain'}} width="300" height="200" />
       <h3 className="font-semibold text-lg mb-2">National AMU Heatmaps</h3>
       <p className="text-gray-600 text-sm">Visualize antimicrobial usage patterns by region, species, and drug type.</p>
       <button onClick={() => alert('Heatmaps update in real-time based on collected data.')} className="mt-4 btn btn-danger">Learn More</button>
+=======
+      <img src="https://storage.googleapis.com/a1aa/image/fa3038a4-bbce-4dcb-5953-8554957e995c.jpg" alt="Heatmap of India showing antimicrobial usage intensity by region with color gradients" className="mb-4 rounded" width="300" height="200" />
+      <h3 className="font-semibold text-lg mb-2">National AMU Heatmaps</h3>
+      <p className="text-gray-600 text-sm">Visualize antimicrobial usage patterns by region, species, and drug type.</p>
+  <button onClick={() => alert('Heatmaps update in real-time based on collected data.')} className="mt-4 btn btn-danger">Learn More</button>
+>>>>>>> bf63d213a5009e3583e0edc37aab8490543c995a
     </div>
   );
 }
@@ -43,8 +50,13 @@ function GovernmentMRLGatekeeping() {
     }));
   }
   return (
+<<<<<<< HEAD
     <div className="card h-100 p-3 text-center border border-danger shadow">
       <img src="https://storage.googleapis.com/a1aa/image/d643d89a-2318-4519-f8a8-7edf030bff56.jpg" alt="Illustration of milk collection center with digital system blocking contaminated batches" className="mb-4 rounded img-fluid d-block mx-auto" style={{maxWidth:'100%',height:'auto',objectFit:'contain'}} width="300" height="200" />
+=======
+  <div className="card h-100 p-3 text-center border border-danger shadow">
+      <img src="https://storage.googleapis.com/a1aa/image/d643d89a-2318-4519-f8a8-7edf030bff56.jpg" alt="Illustration of milk collection center with digital system blocking contaminated batches" className="mb-4 rounded" width="300" height="200" />
+>>>>>>> bf63d213a5009e3583e0edc37aab8490543c995a
       <h3 className="font-semibold text-lg mb-2">MRL Gatekeeping</h3>
       <p className="text-gray-600 text-sm mb-3">Automatically block batches from animals within withdrawal periods.</p>
       <table className="w-full max-w-md text-left border border-gray-300 rounded">
@@ -117,8 +129,13 @@ function GovernmentFraudDetection() {
     setNewSeverity('Medium');
   }
   return (
+<<<<<<< HEAD
     <div className="card h-100 p-3 text-center border border-danger shadow">
       <img src="https://storage.googleapis.com/a1aa/image/231ffe0b-1b25-4cd9-1c04-9d213e3ab0f7.jpg" alt="Illustration of AI analyzing data streams to detect anomalies and fraud in antimicrobial usage" className="mb-4 rounded img-fluid d-block mx-auto" style={{maxWidth:'100%',height:'auto',objectFit:'contain'}} width="300" height="200" />
+=======
+  <div className="card h-100 p-3 text-center border border-danger shadow">
+      <img src="https://storage.googleapis.com/a1aa/image/231ffe0b-1b25-4cd9-1c04-9d213e3ab0f7.jpg" alt="Illustration of AI analyzing data streams to detect anomalies and fraud in antimicrobial usage" className="mb-4 rounded" width="300" height="200" />
+>>>>>>> bf63d213a5009e3583e0edc37aab8490543c995a
       <h3 className="font-semibold text-lg mb-2">AI-Powered Fraud Detection</h3>
       <p className="text-gray-600 text-sm mb-3">Detect anomalies like impossible milk yields or missing withdrawal logs.</p>
       <ul className="max-w-md w-full text-left border border-gray-300 rounded p-3 max-h-48 overflow-y-auto space-y-2 mb-4">
