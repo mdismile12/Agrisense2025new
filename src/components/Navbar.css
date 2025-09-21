@@ -1,0 +1,20 @@
+.navbar {
+  transition: all 0.3s ease;
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.4rem;
+  }
+  
+  .navbar-brand img {
+    height: 32px !important;
+    margin-right: 8px !important;
+  }
+}
