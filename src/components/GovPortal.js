@@ -745,7 +745,7 @@ function GovernmentAuditTrail({ isFullScreen, onExpand, onClose }) {
     <>
       <div className="flex-grow-0 mb-3">
         <img 
-          src="https://storage.googleapis.com/a1aa/image/6b9a5e5a-5e3a-4f2c-9b2a-7c1d8e9f0a1b.jpg" 
+          src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Faudit-trail-icon&psig=AOvVaw3HIw5g2nTzIv7kroGLBEgC&ust=1758554101556000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNCr1tqS6o8DFQAAAAAdAAAAABAE" 
           alt="Digital audit trail visualization showing transaction history and user actions" 
           className="rounded img-fluid d-block mx-auto" 
           style={{maxWidth:'100%', height:'auto', objectFit:'contain'}} 
