@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 
 // Layout component to handle navigation
@@ -34,12 +34,12 @@ function Layout({ children }) {
 }
 
 function VetEPrescriptions({ isFullScreen = false }) {
-  const [prescriptions, setPrescriptions] = useState([
+  const [prescriptions, setPrescriptions] = React.useState([
     { id: 1, animalId: "Cow-102", drug: "Oxytetracycline", dosage: "10 mg/kg", date: "2024-06-10" },
     { id: 2, animalId: "Buffalo-205", drug: "Enrofloxacin", dosage: "5 mg/kg", date: "2024-06-12" },
   ]);
-  const [formData, setFormData] = useState({ animalId: "", drug: "", dosage: "" });
-  const [message, setMessage] = useState(null);
+  const [formData, setFormData] = React.useState({ animalId: "", drug: "", dosage: "" });
+  const [message, setMessage] = React.useState(null);
   
   function handleInputChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -114,12 +114,12 @@ function VetEPrescriptions({ isFullScreen = false }) {
 }
 
 function VetAIDecisionSupport({ isFullScreen = false }) {
-  const [symptoms, setSymptoms] = useState("");
-  const [history] = useState([
+  const [symptoms, setSymptoms] = React.useState("");
+  const [history] = React.useState([
     { date: "2024-05-01", treatment: "Oxytetracycline 10 mg/kg" },
     { date: "2024-04-15", treatment: "No treatment" },
   ]);
-  const [recommendation, setRecommendation] = useState(null);
+  const [recommendation, setRecommendation] = React.useState(null);
   
   function analyze() {
     if (!symptoms.trim()) {
@@ -177,9 +177,9 @@ function VetAIDecisionSupport({ isFullScreen = false }) {
 }
 
 function VetHealthHistory({ isFullScreen = false }) {
-  const [animalId, setAnimalId] = useState("");
-  const [history, setHistory] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [animalId, setAnimalId] = React.useState("");
+  const [history, setHistory] = React.useState(null);
+  const [loading, setLoading] = React.useState(false);
   
   function fetchHistory() {
     if (!animalId.trim()) {
@@ -246,8 +246,8 @@ function VetHealthHistory({ isFullScreen = false }) {
 }
 
 function VetTeleServices({ isFullScreen = false }) {
-  const [callStatus, setCallStatus] = useState(null);
-  const [farmerNumber, setFarmerNumber] = useState("");
+  const [callStatus, setCallStatus] = React.useState(null);
+  const [farmerNumber, setFarmerNumber] = React.useState("");
   
   function startCall() {
     if (!farmerNumber.match(/^\d{10}$/)) {
@@ -322,160 +322,8 @@ function Dashboard() {
   );
 }
 
-function LoginPage({ onLogin }) {
-  const [showLogin, setShowLogin] = useState(true);
-  const [form, setForm] = useState({ phone: "", password: "", name: "", confirmPassword: "" });
-
-  function handleChange(e) {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  }
-  
-  function handleLogin(e) {
-    e.preventDefault();
-    if (!form.phone || !form.password) {
-      alert("Please enter both phone number and password.");
-      return;
-    }
-    onLogin(true);
-  }
-  
-  function handleSignup(e) {
-    e.preventDefault();
-    if (!form.name || !form.phone || !form.password || !form.confirmPassword) {
-      alert("Please fill all fields.");
-      return;
-    }
-    if (form.password !== form.confirmPassword) {
-      alert("Passwords do not match.");
-      return;
-    }
-    onLogin(true);
-  }
-
-  return (
-    <div className="min-vh-100 d-flex align-items-center justify-content-center bg-light">
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-md-6 col-lg-5">
-            <div className="card shadow border-success">
-              <div className="card-header bg-success text-white text-center">
-                <h4 className="mb-0">Veterinarian Portal</h4>
-                <p className="small mb-0">Access your professional dashboard</p>
-              </div>
-              <div className="card-body p-4">
-                <ul className="nav nav-pills nav-justified mb-4">
-                  <li className="nav-item">
-                    <button 
-                      className={`nav-link ${showLogin ? 'active' : ''}`}
-                      onClick={() => setShowLogin(true)}
-                    >
-                      Login
-                    </button>
-                  </li>
-                  <li className="nav-item">
-                    <button 
-                      className={`nav-link ${!showLogin ? 'active' : ''}`}
-                      onClick={() => setShowLogin(false)}
-                    >
-                      Register
-                    </button>
-                  </li>
-                </ul>
-                
-                {showLogin ? (
-                  <form onSubmit={handleLogin}>
-                    <div className="mb-3">
-                      <label className="form-label">Phone Number</label>
-                      <input 
-                        type="tel" 
-                        className="form-control" 
-                        name="phone"
-                        value={form.phone}
-                        onChange={handleChange}
-                        required 
-                      />
-                    </div>
-                    <div className="mb-4">
-                      <label className="form-label">Password</label>
-                      <input 
-                        type="password" 
-                        className="form-control" 
-                        name="password"
-                        value={form.password}
-                        onChange={handleChange}
-                        required 
-                      />
-                    </div>
-                    <button type="submit" className="btn btn-success w-100">Login</button>
-                    <div className="text-center mt-3">
-                      <a href="#forgot" className="text-success small">Forgot Password?</a>
-                    </div>
-                  </form>
-                ) : (
-                  <form onSubmit={handleSignup}>
-                    <div className="mb-3">
-                      <label className="form-label">Full Name</label>
-                      <input 
-                        type="text" 
-                        className="form-control" 
-                        name="name"
-                        value={form.name}
-                        onChange={handleChange}
-                        required 
-                      />
-                    </div>
-                    <div className="mb-3">
-                      <label className="form-label">Phone Number</label>
-                      <input 
-                        type="tel" 
-                        className="form-control" 
-                        name="phone"
-                        value={form.phone}
-                        onChange={handleChange}
-                        required 
-                      />
-                    </div>
-                    <div className="mb-3">
-                      <label className="form-label">Password</label>
-                      <input 
-                        type="password" 
-                        className="form-control" 
-                        name="password"
-                        value={form.password}
-                        onChange={handleChange}
-                        required 
-                      />
-                    </div>
-                    <div className="mb-4">
-                      <label className="form-label">Confirm Password</label>
-                      <input 
-                        type="password" 
-                        className="form-control" 
-                        name="confirmPassword"
-                        value={form.confirmPassword}
-                        onChange={handleChange}
-                        required 
-                      />
-                    </div>
-                    <button type="submit" className="btn btn-success w-100">Register</button>
-                  </form>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
+// VetPortal function updated to always show the portal, no login/signup
 function VetPortal() {
-  const [loggedIn, setLoggedIn] = useState(false);
-
-  if (!loggedIn) {
-    return <LoginPage onLogin={setLoggedIn} />;
-  }
-
   return (
     <Router>
       <Routes>
